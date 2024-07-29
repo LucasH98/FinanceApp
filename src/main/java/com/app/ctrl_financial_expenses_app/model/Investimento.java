@@ -18,24 +18,27 @@ public class Investimento implements Serializable {
 	private String nomeFundoInvestimento;
 	private String descricao;
 	private Double valorInvestido;
-	private Double taxa;
-	private LocalDate DataInvestimento;
-	private LocalDate DataResgate;
+	private Operacao valorOperacao;
+	private LocalDate dataInvestimento;
+	private LocalDate dataResgate;
+	private Double valorResgateDouble;
 
 	public Investimento() {
 
 	}
 
-	public Investimento(Long id, String nomeFundoInvestimento, String descricao, Double valorInvestido, Double taxa,
-			LocalDate dataInvestimento, LocalDate dataResgate) {
-
+	
+	public Investimento(Long id, String nomeFundoInvestimento, String descricao, Double valorInvestido,
+			Operacao valorOperacao, LocalDate dataInvestimento, LocalDate dataResgate, Double valorResgateDouble) {
+		
 		this.id = id;
 		this.nomeFundoInvestimento = nomeFundoInvestimento;
 		this.descricao = descricao;
 		this.valorInvestido = valorInvestido;
-		this.taxa = taxa;
-		DataInvestimento = dataInvestimento;
-		DataResgate = dataResgate;
+		this.valorOperacao = valorOperacao;
+		this.dataInvestimento = dataInvestimento;
+		this.dataResgate = dataResgate;
+		this.valorResgateDouble = valorResgateDouble;
 	}
 
 	public Long getId() {
@@ -70,28 +73,36 @@ public class Investimento implements Serializable {
 		this.valorInvestido = valorInvestido;
 	}
 
-	public Double getTaxa() {
-		return taxa;
+	public Operacao getValorOperacao() {
+		return valorOperacao;
 	}
 
-	public void setTaxa(Double taxa) {
-		this.taxa = taxa;
+	public void setValorOperacao(Operacao valorOperacao) {
+		this.valorOperacao = valorOperacao;
 	}
 
 	public LocalDate getDataInvestimento() {
-		return DataInvestimento;
+		return dataInvestimento;
 	}
 
 	public void setDataInvestimento(LocalDate dataInvestimento) {
-		DataInvestimento = dataInvestimento;
+		this.dataInvestimento = dataInvestimento;
 	}
 
 	public LocalDate getDataResgate() {
-		return DataResgate;
+		return dataResgate;
 	}
 
 	public void setDataResgate(LocalDate dataResgate) {
-		DataResgate = dataResgate;
+		this.dataResgate = dataResgate;
+	}
+
+	public Double getValorResgateDouble() {
+		return valorResgateDouble;
+	}
+
+	public void setValorResgateDouble(Double valorResgateDouble) {
+		this.valorResgateDouble = valorResgateDouble;
 	}
 
 	@Override
@@ -110,5 +121,8 @@ public class Investimento implements Serializable {
 		Investimento other = (Investimento) obj;
 		return Objects.equals(id, other.id);
 	}
+
+	
+	
 
 }
